@@ -43,12 +43,16 @@ set nu
 set inccommand=split
 
 let mapleader="\<space>"
-nnoremap <leader>; A;morhetz/gruvbox<esc>
+nnoremap <leader>; A;<esc>
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 
-noremap <c-p> :Files<cr> 
+nnoremap <c-p> :Files<cr> 
 nnoremap <c-f> :Ag<space> 
+
+"" copy and past shortcuts
+nnoremap <leader>y "+y
+nnoremap <leader>p "+P 
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 nmap <F6> :NERDTreeToggle<CR>
