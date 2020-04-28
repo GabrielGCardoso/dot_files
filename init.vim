@@ -25,6 +25,8 @@ Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'preservim/nerdtree'
+Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
 
 colorscheme gruvbox
@@ -36,8 +38,6 @@ set hidden
 ""show line numbers
 set nu
 
-""can use mouse too
-set mouse=a
 
 ""now i can see a premorhetz/gruvboxview
 set inccommand=split
@@ -47,10 +47,39 @@ nnoremap <leader>; A;morhetz/gruvbox<esc>
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 
-nnoremap <leader>oi oabcd<esc> 
-nnoremap <c-p> :Files<cr> 
+noremap <c-p> :Files<cr> 
 nnoremap <c-f> :Ag<space> 
+
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+nmap <F6> :NERDTreeToggle<CR>
 
 let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
 
+""can use mouse too
+""set mouse=a
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set encoding=utf-8
+
+set formatoptions=tcqrn1
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set noshiftround
+
+let python_highlight_all=1
+syntax on
+
+au BufNewFile *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix

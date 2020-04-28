@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/gabriel/Workflow/start_script'
 let g:netrw_dirhist_1='/home/gabriel/.config/nvim'
 let g:netrw_dirhist_0='/home/gabriel/Workflow/api_finance'
 let g:netrw_dirhist_9='/home/gabriel/Workflow/api_finance_python'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_6='/home/gabriel/Workflow/api_finance'
 let g:netrw_dirhist_5='/home/gabriel/Workflow/start_script'
 let g:netrw_dirhist_4='/home/gabriel/AndroidStudioProjects/flutter_app'
 let g:netrw_dirhist_3='/home/gabriel/Workflow/start_script'
-let g:netrw_dirhist_2='/home/gabriel/Workflow/api_finance'
