@@ -51,9 +51,14 @@ nnoremap <c-p> :Files<cr>
 nnoremap <c-f> :Ag<space> 
 
 "" copy and past shortcuts
-nnoremap <leader>y "+y
-nnoremap <leader>p "+P 
+vnoremap <leader>y "+y
+map <leader>p "+P 
 
+nnoremap <c-p> :Files<cr> 
+nnoremap <c-f> :Ag<space> 
+
+"" copy and past shortcuts
+vnoremap <leader>y "+y
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 nmap <F6> :NERDTreeToggle<CR>
 
