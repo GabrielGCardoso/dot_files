@@ -8,7 +8,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " plugins to autocomplete
-    " assuming you're using vim-plug: https://github.com/junegunn/vim-plug
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 " enable ncm2 for all buffers
@@ -42,6 +41,10 @@ set nu
 ""now i can see a premorhetz/gruvboxview
 set inccommand=split
 
+""alt + arows from sublime
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 let mapleader="\<space>"
 nnoremap <leader>; A;<esc>
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
@@ -51,8 +54,11 @@ nnoremap <c-p> :Files<cr>
 nnoremap <c-f> :Ag<space> 
 
 "" copy and past shortcuts
+set clipboard+=unnamedplus
 vnoremap <leader>y "+y
 map <leader>p "+P 
+
+inoremap jh <Esc>
 
 nnoremap <c-p> :Files<cr> 
 nnoremap <c-f> :Ag<space> 
