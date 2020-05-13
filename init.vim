@@ -87,9 +87,15 @@ nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+nnoremap <leader>oi oabcd<esc>
 "" copy and past shortcuts
-vnoremap <leader>y "+y
-map <leader>p "+P 
+vnoremap <leader>y "*y
+map <leader>p "*P 
 
+"" Resize window
+nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 2/3)<CR>
+
+nnoremap <silent> <Leader>l :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <Leader>h :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 ""inoremap <c-o> <Esc>
-
