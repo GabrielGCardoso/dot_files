@@ -10,7 +10,8 @@ sudo apt install python-neovim -y
 sudo apt install git -y
 
 #this part here is verry personal use
-sudo add-apt-repository ppa:audacity-team/daily -y
+#sudo add-apt-repository ppa:audacity-team/daily -y
+sudo add-apt-repository ppa:ubuntuhandbook1/audacity
 sudo apt-get update -y
 sudo apt-get install audacity -y
 # audacity installed 
@@ -63,4 +64,9 @@ sudo apt install silversearcher-ag -y
 
 #install tmxu
 sudo apt-get install tmux -y
+
+#downloading neovim
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+chmod u+x nvim.appimage
+sudo mv nvim.appimage /usr/bin/nvim
 
