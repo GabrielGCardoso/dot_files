@@ -25,8 +25,20 @@ call plug#begin()
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'preservim/nerdtree'
+
   Plug 'dart-lang/dart-vim-plugin'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  ""Plug 'natebosch/vim-lsc'
+  ""Plug 'natebosch/vim-lsc-dart'
 call plug#end()
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+"" autocomplete with natebosh"
+""llet g:lsc_auto_map = v:trueet g:lsc_auto_map = v:true
 
 colorscheme gruvbox
 set background=dark
@@ -39,6 +51,7 @@ set inccommand=split
 
 nnoremap <c-p> :Files<cr> 
 nnoremap <c-f> :Ag<space> 
+
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 nmap <F6> :NERDTreeToggle<CR>
@@ -67,7 +80,6 @@ let python_highlight_all=1
 syntax on
 
 au BufNewFile *.py
-
     \ set tabstop=4
     \| set softtabstop=4
     \| set shiftwidth=4
@@ -90,8 +102,8 @@ vnoremap K :m '<-2<CR>gv=gv
 
 nnoremap <leader>oi oabcd<esc>
 "" copy and past shortcuts
-vnoremap <leader>y "*y
-map <leader>p "*P 
+vnoremap <leader>y "+y
+map <leader>p "+P 
 
 "" Resize window
 nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 3/2)<CR>
