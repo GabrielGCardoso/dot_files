@@ -30,8 +30,18 @@ call plug#begin()
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   ""Plug 'natebosch/vim-lsc'
   ""Plug 'natebosch/vim-lsc-dart'
+  Plug 'tpope/vim-fugitive'
+  Plug 'vim-airline/vim-airline'
+  """Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
+" Sweet Sweemt FuGITive
+nmap <leader>gl :diffget //3<CR>
+nmap <leader>gh :diffget //2<CR>
+nmap <leader>gd :G diff<CR>
+nmap <leader>gs :G<CR>
+
+" Coc config
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -58,9 +68,6 @@ nmap <F6> :NERDTreeToggle<CR>
 
 let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetsDir = '~/.config/nvim/UltiSnips'
-
-""can use mouse too
-""set mouse=a
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -93,6 +100,7 @@ set clipboard+=unnamedplus
 let mapleader="\<space>"
 
 nnoremap <leader>; A;<esc>
+nnoremap <leader>f :CocList --input=flutter commands<cr>
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 
@@ -110,4 +118,3 @@ nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 2/3)<CR>
 
 nnoremap <silent> <Leader>l :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>h :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
-""inoremap <c-o> <Esc>
