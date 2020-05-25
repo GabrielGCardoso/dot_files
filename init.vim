@@ -35,11 +35,6 @@ call plug#begin()
   """Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-" Sweet Sweemt FuGITive
-nmap <leader>gl :diffget //3<CR>
-nmap <leader>gh :diffget //2<CR>
-nmap <leader>gd :G diff<CR>
-nmap <leader>gs :G<CR>
 
 " Coc config
 nmap <silent> gd <Plug>(coc-definition)
@@ -55,7 +50,7 @@ set background=dark
 
 set hidden
 
-set nu
+set rnu
 
 set inccommand=split
 
@@ -103,6 +98,12 @@ nnoremap <leader>; A;<esc>
 nnoremap <leader>f :CocList --input=flutter commands<cr>
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
+
+" Sweet Sweemt FuGITive
+nmap <leader>gl :diffget //3<CR>
+nmap <leader>gh :diffget //2<CR>
+nmap <leader>gd :G diff<CR>
+nmap <leader>gs :G<CR>
 
 ""alt + arows from sublime
 vnoremap J :m '>+1<CR>gv=gv
