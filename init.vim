@@ -100,7 +100,6 @@ nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-nnoremap <leader>oi oabcd<esc>
 "" copy and past shortcuts
 vnoremap <leader>y "+y
 map <leader>p "+P 
