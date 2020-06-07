@@ -94,10 +94,13 @@ set clipboard+=unnamedplus
 
 let mapleader="\<space>"
 
+"utils vim shortcuts
 nnoremap <leader>; A;<esc>
 nnoremap <leader>f :CocList --input=flutter commands<cr>
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
+nnoremap <C-S> :w<cr>
+inoremap <C-S> <esc>:w<cr>
 
 " Sweet Sweemt FuGITive
 nmap <leader>gl :diffget //3<CR>
@@ -110,8 +113,8 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 "" copy and past shortcuts
-vnoremap <leader>y "+y
-map <leader>p "+P 
+vnoremap <leader>y :!xclip -f -sel clip<CR>
+map <leader>p mz:-lr !xclip -o -sel clip<CR>`z 
 
 "" Resize window
 nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 3/2)<CR>

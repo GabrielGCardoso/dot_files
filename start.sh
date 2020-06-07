@@ -70,3 +70,7 @@ curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod u+x nvim.appimage
 sudo mv nvim.appimage /usr/bin/nvim
 
+#install xcopy
+sudo apt-get update -y 
+sudo apt-get install -y xclip
+
