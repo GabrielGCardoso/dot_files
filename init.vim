@@ -50,6 +50,7 @@ set background=dark
 
 set hidden
 
+set nu
 set rnu
 
 set inccommand=split
@@ -96,6 +97,7 @@ let mapleader="\<space>"
 
 "utils vim shortcuts
 nnoremap <leader>; A;<esc>
+"Only for flutter plugin
 nnoremap <leader>f :CocList --input=flutter commands<cr>
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
@@ -122,3 +124,14 @@ nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 2/3)<CR>
 
 nnoremap <silent> <Leader>l :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>h :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+ 
+"" Tab navigation like Firefox.
+nnoremap <silent> <Leader>t :tabprevious<CR>
+"nnoremap <silent> <Leader>t :tabnext<CR>
+nnoremap <C-t> :tabnew<CR>
+"nnoremap <C-tab> :tabnext<CR>
+"nnoremap <C-S-tab> :tabprevious<CR>
+"inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+"inoremap <C-tab>   <Esc>:tabnext<CR>i
+"inoremap <C-t>     <Esc>:tabnew<CR>
+
