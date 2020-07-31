@@ -11,7 +11,7 @@ sudo apt install git -y
 
 #this part here is verry personal use
 #sudo add-apt-repository ppa:audacity-team/daily -y
-sudo add-apt-repository ppa:ubuntuhandbook1/audacity
+sudo add-apt-repository ppa:ubuntuhandbook1/audacity -y
 sudo apt-get update -y
 sudo apt-get install audacity -y
 # audacity installed 
@@ -54,9 +54,13 @@ wget https://raw.githubusercontent.com/GabrielGCardoso/dot_files/master/init.vim
 sudo mv init.vim ~/.config/nvim/init.vim
 #touch ~/.config/nvim/init.vim
 
-#nvim plug maneger
+#vim plug maneger
 curl -fLo ~/.config/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    
+#nvim plug maneger
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 #install silver search Ag to fzf files into nvim
 sudo apt-get update -y
