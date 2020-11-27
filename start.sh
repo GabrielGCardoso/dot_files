@@ -70,7 +70,7 @@ sudo apt install silversearcher-ag -y
 sudo apt-get install tmux -y
 
 #downloading neovim
-curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 chmod u+x nvim.appimage
 sudo mv nvim.appimage /usr/bin/nvim
 
