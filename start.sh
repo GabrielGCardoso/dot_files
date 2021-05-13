@@ -78,3 +78,5 @@ sudo mv nvim.appimage /usr/bin/nvim
 sudo apt-get update -y 
 sudo apt-get install -y xclip
 
+#installing neovide
+#https://github.com/Kethku/neovide
