@@ -1,0 +1,44 @@
+# open this file
+aliases() {
+    nvim $HOME/.config/nvim/.aliases
+}
+
+# Programs
+alias vim='nvim'
+
+# GIT Aliases
+alias gt='git'
+alias gpsh='git push origin'
+alias gpshc='git push origin $(git branch --show-current)'
+alias gpl='git pull --ff origin'
+alias gplr='git pull --rebase origin $(git branch --show-current)'
+alias gplc='git pull --ff origin $(git branch --show-current)'
+alias gth='git reset --hard $(git rev-parse origin/$(git branch --show-current))'
+alias glpr='gh pr list --author @me'
+alias glprw='gh pr list --author @me --web'
+## Creates a new branch by the output of text editor
+cb(){
+    echo $1 | vipe | xargs -I{} git checkout -b "{}"
+}
+##checkout iteractive
+coi(){
+    git branch | ipt | xargs -I{} git checkout {}
+}
+## Creates a PR
+gcpr(){
+    echo $1 | vipe | xargs -I{} gh pr --title "{}" create -F "./pull_request_template.md" --base production -d
+}
+
+# SO stuff
+## kill process on port $1
+kp() {
+    sudo kill -9 $(sudo lsof -t -i:$1)
+}
+## list process on port $1
+lp() {
+    sudo lsof -t -i:$1
+}
+
+# Programing Commands
+## Runing rpsec
+alias bersd='bundle exec rspec -f d'
