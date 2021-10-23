@@ -114,7 +114,7 @@ nmap <leader>gs :G<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-"" copy and past shortcuts
+"" copy and past shortcuts NOTE: for Linux and need xclip
 vnoremap <leader>y :!xclip -f -sel clip<CR>
 map <leader>p mz:-lr !xclip -o -sel clip<CR>`z 
 

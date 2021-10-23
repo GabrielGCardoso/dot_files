@@ -1,7 +1,6 @@
 # open this file
-aliases() {
-    nvim $HOME/.config/nvim/.aliases
-}
+alias aliases='nvim $HOME/.config/nvim/.aliases' 
+alias zshrc='nvim $HOME/.zshrc' 
 
 # Programs
 alias vim='nvim'
