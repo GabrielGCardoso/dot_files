@@ -6,6 +6,8 @@ call plug#begin()
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'airblade/vim-rooter'
+  ""plugin to comment"
+  Plug 'tpope/vim-commentary'
 
 " " plugins to autocomplete
   "Plug 'ncm2/ncm2'
@@ -100,9 +102,11 @@ nnoremap <leader>; A;<esc>
 "Only for flutter plugin
 nnoremap <leader>f :CocList --input=flutter commands<cr>
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
-nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
+nnoremap <leader>sc :source ~/.config/nvim/init.vim<cr>
 nnoremap <C-S> :w<cr>
 inoremap <C-S> <esc>:w<cr>
+nmap <leader>sh :split<Return><C-w>w
+nmap <leader>sv :vsplit<Return><C-w>w
 
 " Sweet Sweemt FuGITive
 nmap <leader>gl :diffget //3<CR>
@@ -115,6 +119,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 "" copy and past shortcuts NOTE: for Linux and need xclip
+"" Useful on ubuntu"
 vnoremap <leader>y :!xclip -f -sel clip<CR>
 map <leader>p mz:-lr !xclip -o -sel clip<CR>`z 
 
@@ -126,8 +131,13 @@ nnoremap <silent> <Leader>l :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>h :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
  
 "" Tab navigation like Firefox.
+nmap <S-Tab> :tabprev<Return>
+nmap <Tab> :tabnext<Return>
 nnoremap <silent> <Leader>t :tabprevious<CR>
 "nnoremap <silent> <Leader>t :tabnext<CR>
+""plugin to comment"
+nnoremap <C-_> :Commentary<CR>
+vnoremap <C-_> :Commentary<CR>
 nnoremap <C-t> :tabnew<CR>
 "nnoremap <C-tab> :tabnext<CR>
 "nnoremap <C-S-tab> :tabprevious<CR>

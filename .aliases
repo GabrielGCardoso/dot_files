@@ -1,4 +1,5 @@
 # open this file
+# $FZF_DEFAULT_OPTS = "--bind up:preview-up,down:preview-down,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 alias aliases='nvim $HOME/.config/nvim/.aliases' 
 alias zshrc='nvim $HOME/.zshrc' 
 
@@ -6,7 +7,7 @@ alias zshrc='nvim $HOME/.zshrc'
 alias vim='nvim'
 
 # GIT Aliases
-alias gt='git'
+alias g='git'
 alias gpsh='git push origin'
 alias gpshc='git push origin $(git branch --show-current)'
 alias gpl='git pull --ff origin'
@@ -21,7 +22,7 @@ cb(){
 }
 ##checkout iteractive
 coi(){
-    git branch | ipt | xargs -I{} git checkout {}
+    git branch | peco | xargs -I{} git checkout {}
 }
 ## Creates a PR
 gcpr(){
