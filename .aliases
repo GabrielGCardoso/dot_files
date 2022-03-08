@@ -1,3 +1,60 @@
+# open this file
+# $FZF_DEFAULT_OPTS = "--bind up:preview-up,down:preview-down,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
+alias aliases='nvim $HOME/.config/nvim/.aliases' 
+alias zshrc='nvim $HOME/.zshrc' 
+
+# Programs
+alias vim='nvim'
+
+# GIT Aliases
+alias g='git'
+alias gpsh='git push origin'
+alias gpshc='git push origin $(git branch --show-current)'
+alias gpl='git pull --ff origin'
+alias gplr='git pull --rebase origin $(git branch --show-current)'
+alias gplc='git pull --ff origin $(git branch --show-current)'
+alias gth='git reset --hard $(git rev-parse origin/$(git branch --show-current))'
+alias glpr='gh pr list --author @me'
+alias glprw='gh pr list --author @me --web'
+## Creates a new branch by the output of text editor
+cb(){
+    cbn $1 | vipe | xargs -I{} git checkout -b "{}"
+}
+##Git checkout iteractive
+coi(){
+    git branch | peco | xargs -I{} git checkout {}
+}
+## Git merge interactive
+mi(){
+    git branch | peco | xargs -I{} git merge {}
+}
+## Creates a PR
+gcpr(){
+    echo $1 | vipe | xargs -I{} gh pr --title "{}" create -F "./pull_request_template.md" --base production -d
+}
+
+run_specs(){
+  # $FILE_TO_TEST = git diff --name-only origin/production | grep "[^_spec].rb" | sed 's/^app/spec/' | sed 's/.rb$/_spec.rb/' | xargs bundle exec rspec -f d
+  FILE_TO_TEST=$(git diff --name-only origin/production | grep "[^_spec].rb" | sed 's/^app/spec/' | sed 's/.rb$/_spec.rb/')
+  if [ -n "$FILE_TO_TEST" ]; then
+      echo "Running the following changed specs"
+      echo $FILE_TO_TEST
+      bundle exec rspec -f d $CHANGED_SPECS
+  fi
+}
+
+# SO stuff
+##List ips
+alias localip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+## kill process on port $1
+kp() {
+    sudo kill -9 $(sudo lsof -t -i:$1)
+}
+## list process on port $1
+lp() {
+    sudo lsof -t -i:$1
+}
+
 # Archives
 function extract {
   if [ -z "$1" ]; then
@@ -26,48 +83,6 @@ function extract {
       echo "$1 - file does not exist"
     fi
   fi
-}
-
-# open this file
-# $FZF_DEFAULT_OPTS = "--bind up:preview-up,down:preview-down,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
-alias aliases='nvim $HOME/.config/nvim/.aliases' 
-alias zshrc='nvim $HOME/.zshrc' 
-
-# Programs
-alias vim='nvim'
-
-# GIT Aliases
-alias g='git'
-alias localip="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-alias gpsh='git push origin'
-alias gpshc='git push origin $(git branch --show-current)'
-alias gpl='git pull --ff origin'
-alias gplr='git pull --rebase origin $(git branch --show-current)'
-alias gplc='git pull --ff origin $(git branch --show-current)'
-alias gth='git reset --hard $(git rev-parse origin/$(git branch --show-current))'
-alias glpr='gh pr list --author @me'
-alias glprw='gh pr list --author @me --web'
-## Creates a new branch by the output of text editor
-cb(){
-    echo $1 | vipe | xargs -I{} git checkout -b "{}"
-}
-##checkout iteractive
-gco(){
-    git branch | peco | xargs -I{} git checkout {}
-}
-## Creates a PR
-gcpr(){
-    echo $1 | vipe | xargs -I{} gh pr --title "{}" create -F "./pull_request_template.md" --base production -d
-}
-
-# SO stuff
-## kill process on port $1
-kp() {
-    sudo kill -9 $(sudo lsof -t -i:$1)
-}
-## list process on port $1
-lp() {
-    sudo lsof -t -i:$1
 }
 
 # Programing Commands
