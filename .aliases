@@ -1,5 +1,7 @@
 # open this file
 # $FZF_DEFAULT_OPTS = "--bind up:preview-up,down:preview-down,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
+alias cat='bat'
+alias ls='exa'
 alias aliases='nvim $HOME/.config/nvim/.aliases' 
 alias zshrc='nvim $HOME/.zshrc' 
 
@@ -34,12 +36,19 @@ gcpr(){
 }
 
 run_specs(){
-  # $FILE_TO_TEST = git diff --name-only origin/production | grep "[^_spec].rb" | sed 's/^app/spec/' | sed 's/.rb$/_spec.rb/' | xargs bundle exec rspec -f d
-  FILE_TO_TEST=$(git diff --name-only origin/production | grep "[^_spec].rb" | sed 's/^app/spec/' | sed 's/.rb$/_spec.rb/')
-  if [ -n "$FILE_TO_TEST" ]; then
+  FILES_TO_TEST=$(git diff --name-only origin/production | grep "[^_spec].rb" | sed 's/^app/spec/' | sed 's/.rb$/_spec.rb/')
+  if [ -n "$FILES_TO_TEST" ]; then
       echo "Running the following changed specs"
-      echo $FILE_TO_TEST
-      bundle exec rspec -f d $CHANGED_SPECS
+      echo $FILES_TO_TEST
+      bundle exec rspec -f d $FILES_TO_TEST
+  fi
+}
+
+rubymine(){
+  if [ -n "$1" ]; then
+      open -na "RubyMine.app" --args "$1"
+  else
+      open -na "RubyMine.app"
   fi
 }
 
