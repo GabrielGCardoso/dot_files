@@ -22,7 +22,7 @@ alias glprw='gh pr list --author @me --web'
 cb(){
     cbn $1 | vipe | xargs -I{} git checkout -b "{}"
 }
-##Git checkout iteractive
+## Git checkout iteractive
 coi(){
     git branch | peco | xargs -I{} git checkout {}
 }
@@ -35,12 +35,14 @@ gcpr(){
     echo $1 | vipe | xargs -I{} gh pr --title "{}" create -F "./pull_request_template.md" --base production -d
 }
 
+alias files_modified='git diff --name-only origin/production...$(git branch --show-current) | grep "[^_spec].rb" | sed "s/^app/spec/" | sed "s/.rb$/_spec.rb/"'
+
 run_specs(){
-  FILES_TO_TEST=$(git diff --name-only origin/production | grep "[^_spec].rb" | sed 's/^app/spec/' | sed 's/.rb$/_spec.rb/')
-  if [ -n "$FILES_TO_TEST" ]; then
-      echo "Running the following changed specs"
-      echo $FILES_TO_TEST
-      bundle exec rspec -f d $FILES_TO_TEST
+  CHANGED_SPECS=$(git diff --name-only origin/production...$(git branch --show-current) | grep "[^_spec].rb" | sed 's/^app/spec/' | sed 's/.rb$/_spec.rb/')
+  if [ -n "$CHANGED_SPECS" ]; then
+      echo "Running the following specs"
+      echo $CHANGED_SPECS
+      bundle exec rspec -f d $(echo $CHANGED_SPECS)
   fi
 }
 
