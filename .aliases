@@ -99,3 +99,6 @@ function extract {
 # Programing Commands
 ## Runing rpsec
 alias bersd='bundle exec rspec -f d'
+
+## JSON parse and stringify
+alias jsp='node -e "console.log(JSON.stringify(JSON.parse(process.argv[1])))"'

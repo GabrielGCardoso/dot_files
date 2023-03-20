@@ -4,6 +4,8 @@
 	name = Gabriel Cardoso
 	email = gabrielguimac@gmail.com
 [alias]
+	append = commit --amend --no-edit
+	aa = "!git commit --all --amend --no-edit"
 	ci = commit
 	co = checkout
 	cm = checkout master
