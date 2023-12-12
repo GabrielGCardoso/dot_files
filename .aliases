@@ -1,9 +1,12 @@
 # open this file
 # $FZF_DEFAULT_OPTS = "--bind up:preview-up,down:preview-down,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
-alias cat='bat'
+alias cat='batcat'
 alias ls='exa'
 alias aliases='nvim $HOME/.config/nvim/.aliases' 
 alias zshrc='nvim $HOME/.zshrc' 
+# only for linux (ubuntu)
+alias pbcopy="xclip -selection clipboard"
+alias pbpaste="xclip -selection clipboard -o"
 
 # Programs
 alias vim='nvim'
